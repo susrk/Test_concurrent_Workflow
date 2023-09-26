@@ -1,0 +1,15 @@
+name: Matrix Example
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        os: [ubuntu-latest, macos-latest, windows-latest]
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+      
+    - name: Build on ${{ matrix.os }}
+      run: |
+        echo "Building on ${{ matrix.os }}"
